@@ -5113,7 +5113,7 @@
   EndInExpression;
   #do Var={`?VarList'}
     #message Considering variable `Var'
-    #call LimitsToHlogs(`ExprID',`LinfFuncID',`Var')
+    #call HypLimitsToHlogs(`ExprID',`LinfFuncID',`Var')
     InExpression `ExprID';
       id HYPLx(?a) = `LfuncID'(?a, `Var');
       Argument `LfuncID';
