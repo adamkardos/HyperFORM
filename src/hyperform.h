@@ -5108,15 +5108,15 @@
 #procedure HypFibrationBasis(ExprID,LinfFuncID,LfuncID,RatFuncID,?VarList)
 * Convenience routine for users to generate the fibration basis in a series
 * of variables, the conversion starts from the LHS of the variable list.
-  InExpression `ExprID';
-    multiply replace_(`RatFuncID',HYPrat);
-  EndInExpression;
   #do Var={`?VarList'}
     #message Considering variable `Var'
+    InExpression `ExprID';
+      multiply replace_(`RatFuncID',HYPrat);
+    EndInExpression;
     #call HypLimitsToHlogs(`ExprID',`LinfFuncID',`Var')
     InExpression `ExprID';
       id HYPLx(?a) = `LfuncID'(?a, `Var');
-      Argument `LfuncID';
+      Argument `LfuncID',`LinfFuncID';
         multiply replace_(HYPrat, `RatFuncID');
       EndArgument;
     EndInExpression;
