@@ -2534,6 +2534,7 @@
           HYPLx(?a)*HYPdx(`IntVar')
         ;
       endterm;
+      moduleoption local $pow;
       #call HypSimplifyNumerics
 *      print "IntHlogDenZeroLetterRatFun -> %t";
     endif;
@@ -2565,6 +2566,7 @@
           1/($pow-1)*HYPdenx(HYPn1)^$pow*HYPLx(?a)*HYPdx(`IntVar')
         ;
       endterm;
+      moduleoption local $pow;
       #call HypSimplifyNumerics
 *      print "IntHlogIntHlogDenLetterSamePoly -> %t";
     endif;
@@ -2596,6 +2598,7 @@
           1/($pow-1)*HYPdenx(HYPn1,HYPn2)^$pow*HYPLx(?a)*HYPdx(`IntVar')
         ;
       endterm;
+      moduleoption local $pow;
       #call HypSimplifyNumerics
 *      print "IntHlogDenLetterSameRatFun -> %t";
     endif;
@@ -2633,6 +2636,7 @@
           )*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypArgRatFunManip(HYPden,-)
       #call HypDenSimplify(HYPnum,HYPden,HYPrat,HYPz,HYPn1,HYPn2)
@@ -2673,6 +2677,7 @@
           )*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypArgRatFunManip(HYPden,-)
       #call HypDenSimplify(HYPnum,HYPden,HYPrat,HYPz,HYPn1,HYPn2)
@@ -2714,6 +2719,7 @@
           )*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypArgRatFunManip(HYPden,-)
       #call HypDenSimplify(HYPnum,HYPden,HYPrat,HYPz,HYPn1,HYPn2)
@@ -2754,6 +2760,7 @@
           )*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypSimplifyNumerics
 *      print "IntHlogDenPolyLetterPoly -> %t";
@@ -2791,6 +2798,7 @@
           HYPLx(?a)*HYPdx(`IntVar')
         ;
       endterm;
+      moduleoption local $pow;
       #call HypSimplifyNumerics
 *      print "IntHlogDenRatFunLetterZero -> %t";
     endif;
@@ -2911,6 +2919,7 @@
           1/($pow+1)*`IntVar'^$pow*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       #call HypSimplifyNumerics
 *      print "IntHlogVarLetterZero -> %t";
     endif;
@@ -2944,6 +2953,7 @@
           1/($pow+1)*sum_(HYPi,0,$pow,HYPnum(HYPn1)^(HYPi)*`IntVar'^($pow-HYPi))*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypSimplifyNumerics
 *      print "IntHlogVarLetterPoly -> %t";
