@@ -2992,6 +2992,7 @@
           1/($pow+1)*sum_(HYPi,0,$pow,HYPnum(HYPn1)^(HYPi)*HYPden(HYPn2)^(HYPi)*`IntVar'^($pow-HYPi))*HYPLx(?a)*HYPdx(`IntVar')
           ;
       endterm;
+      moduleoption local $pow;
       id HYPLx = 1;
       #call HypSimplifyNumerics
 *      print "IntHlogVarLetterRatFun -> %t";
