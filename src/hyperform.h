@@ -3647,7 +3647,8 @@
       print "%t";
       print "Mapping it away...";
     #endif
-    multiply replace_(HYPLx,HYPLlimZero,HYPdenx,HYPinf);
+    multiply replace_(HYPLx,HYPLlimZero);
+    id HYPdenx(0) = HYPinf;
 *    id HYPLlimZero(?a) = HYPLlimZero(`Var',?a);
     id HYPlim(`Var',0) = 1;
 *    print "Zero limit still here...";
