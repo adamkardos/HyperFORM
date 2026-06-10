@@ -4486,19 +4486,21 @@
 * This massages the argument of logs whenever they have dependence on `Var':
 * log(a + b*`Var') = log(a) + log(1 - `Var'/(-a/b)) = HYPlog(a) + HYPlogx(-a,b)
 * Changes logs into var-dependent logs if the argument contains `Var' and
-* also massages the argument. Assumes linear dependence in `Var':
-* Starting with trivial logs:
+* also massages the argument.
+  id HYPlog(HYPn1?) = HYPaux(HYPlog(HYPn1));
+  Argument HYPaux;
+    If (occurs(`Var') > 0);
+      multiply replace_(HYPlog,HYPaux);
+    EndIf;
+  EndArgument;
+  id HYPaux(HYPaux(HYPn1?)) = HYPaux(HYPn1);
+  Factarg HYPaux;
+  Repeat id HYPaux(HYPn1?,HYPn2?,?a) = HYPlog(HYPn1) + HYPaux(HYPn2,?a);
+  id HYPaux(HYPlog(HYPn1?)) = HYPlog(HYPn1);
+  id HYPaux(HYPn1?) = HYPlog(HYPn1);
   id HYPlog(`Var') = HYPlogx(0);
   splitarg((`Var')),HYPlog;
   transform,HYPlog,addargs(2,last);
-* Note that if the first argument is zero and the second is nonzero we have a special
-* product form:
-  id HYPlog(0,HYPn2?!{0,}) = HYPaux(HYPn2);
-* Factorization:
-  factarg HYPaux;
-  repeat id HYPaux(?a,`Var',?b) = HYPaux(?a,?b) + HYPlogx(0);
-  transform,HYPaux,mulargs(1,last);
-  multiply replace_(HYPaux,HYPlog);
 * We assume linearity in `Var' hence we get rid of it in second argument:
   id HYPlog(HYPn1?,HYPn2?!{0,}) = HYPlog(HYPn1) + HYPlogx(-HYPn1,HYPn2/`Var');
 * When there is no `Var' dependence get rid of second argument:
